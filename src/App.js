@@ -1,9 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { StateContenxt } from '.';
+import { useContext } from 'react';
+
+// Let create the store object
 
 function App() {
+  const state = useContext(StateContenxt);
+  console.log(state)
+  state.subscribe(()=>{
+    console.log(state.getState());
+  });
+  state.dispatch({ type:"GOODMORNING",data:'SHIVKANYA'});
   return (
     <div className="App">
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
